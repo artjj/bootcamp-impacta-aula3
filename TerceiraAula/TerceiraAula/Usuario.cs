@@ -7,7 +7,5 @@ namespace TerceiraAula
     class Usuario : Pessoa
     {
         public DateTime ?Demissao { get; set; }
-        public DateTime AceiteDeTermos;
-        public DateTime ConfirmacaoCadastro;
     }
 }
