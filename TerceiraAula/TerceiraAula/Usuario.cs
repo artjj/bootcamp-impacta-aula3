@@ -4,12 +4,10 @@ using System.Text;
 
 namespace TerceiraAula
 {
-    class Usuario
+    class Usuario : Pessoa
     {
-        int Id;
-        string Nome;
-        DateTime Demissao;
-        DateTime AceiteDeTermos;
-        DateTime ConfirmacaoCadastro;
+        public DateTime ?Demissao { get; set; }
+        public DateTime AceiteDeTermos;
+        public DateTime ConfirmacaoCadastro;
     }
 }

@@ -4,10 +4,9 @@ using System.Text;
 
 namespace TerceiraAula
 {
-    class Cliente : Pessoa
+    abstract class Pessoa
     {
-        public bool IsMaiorDeIdade { get; set; }
+        public string Nome { get; set; }
+        public int Id { get; set; }
     }
-
-
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TerceiraAula
 {
@@ -23,15 +24,51 @@ namespace TerceiraAula
             leite.Descricao = "Leite integral pasteurizado";
             leite.Tipo = "Alimento";
             leite.Valor = 4.85;
-            leite.AtualizarDataValidade(validade);
+            leite.AtualizarDataValidade(new DateTime(2021, 9, 13));
 
-            if (cafe.Validade == leite.Validade)
+            if (!cafe.IsProdutoValido())
             {
-                Console.WriteLine("A validade é a mesma!");
+                Console.WriteLine("Café vencido!");
             }
-            else
+
+            if (!leite.IsProdutoValido())
             {
-                Console.WriteLine("Validades diferentes!");
+                Console.WriteLine("Leite vencido!");
+            }
+
+            Cliente cliente = new Cliente()
+            {
+                Id = 1,
+                Nome = "Arthur Dylan",
+                IsMaiorDeIdade = true
+            };
+
+            Usuario usuario = new Usuario()
+            {
+                Id = 1,
+                Nome = "",
+                Demissao = null
+            };
+
+            List<Pessoa> pessoas = new List<Pessoa>();
+
+            pessoas.Add(cliente);
+            pessoas.Add(usuario);
+
+            foreach(var p in pessoas)
+            {
+                if (p is Cliente)
+                {
+                    Console.WriteLine($"Cliente: {p.Nome}, é maior de idade? {((Cliente)p).IsMaiorDeIdade}");
+                }
+                else if (p is Usuario)
+                {
+                    Console.WriteLine($"Usuario: {p.Nome}, é maior de idade? {((Usuario)p).Demissao}");
+                }
+                else
+                {
+                    Console.WriteLine($"Pessoa: {p.Nome}");
+                }
             }
         }
     }
